@@ -15,6 +15,7 @@ Software versions
 
 Resources to create
 ----------------------
+
 Create an Azure Resource Group to organize the Storage Account within.
 
 This will generally be a resource group just for this Azure Storage Account since it will be secure and managed separately from any other resources.
@@ -24,7 +25,6 @@ Create the Azure Storage Account to use.
 Create the Container where the state file will be stored.
 
 In this example, the container was named `global-sc-tfstate`
-
 
 Makefile to deploy terraform
 ----------------------
@@ -43,6 +43,7 @@ make tf-destroy env=demo
 
 Screenshots
 ----------------------
+
 ![Alt text](image-1.png)
 
 Troubleshooting
@@ -58,6 +59,7 @@ skip_provider_registration = true
 ```bash
 Cannnot register providers: Microsoft.Storage
 ```
+
 ![Alt text](image.png)
 
 Configure terraform backend state
@@ -73,6 +75,7 @@ access_key: The storage access key
 ```
 
 Do not use Default Configuration
+
 ```hcl
 # Don't do this
 terraform {
@@ -89,7 +92,8 @@ terraform {
 ```
 
 Use Partial Configuration
-```
+
+```hcl
 # This is better
 terraform {
   backend "azurerm" {
@@ -109,6 +113,7 @@ access_key=""
 ```
 
 Or you can use a env variable
+
 ```bash
 ACCOUNT_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP_NAME --account-name $STORAGE_ACCOUNT_NAME --query '[0].value' -o tsv)
 export ARM_ACCESS_KEY=$ACCOUNT_KEY
@@ -116,6 +121,7 @@ export ARM_ACCESS_KEY=$ACCOUNT_KEY
 
 Documentation
 ----------------------
+
 - [Registering Terraform Providers](https://blog.simontimms.com/2022/08/12/register_providers/#:~:text=For%202%20it%20requires%20logging,select%20it%20and%20hit%20Register%20)
 - [Store Terraform state in Azure Storage](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli)
 
