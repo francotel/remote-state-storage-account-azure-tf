@@ -3,6 +3,7 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+azure.conf
 
 # Icon must end with two \r
 Icon

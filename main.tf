@@ -7,6 +7,9 @@ resource "random_string" "resource_code" {
 resource "azurerm_resource_group" "global_rg_tfstate" {
   name     = "global-rg-tfstate"
   location = var.az_region # list location = az account list-locations -o table
+  tags = {
+    ManagedBy = "terraform"
+  }
 }
 
 resource "azurerm_storage_account" "global_sa_tfstate" {

@@ -35,4 +35,4 @@ tf-destroy: $(env)
 	terraform destroy -var="az_region=${AZ_REGION}"
 
 tf-output: $(env)
-	terraform output
+	terraform output 
