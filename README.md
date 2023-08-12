@@ -36,6 +36,9 @@ make tf-apply env=demo
 
 ## view outputs
 make tf-output env=demo
+
+## destroy resources
+make tf-destroy env=demo
 ```
 
 Screenshots
